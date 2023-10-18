@@ -3,6 +3,7 @@ import h5py
 from torch.utils.data import DataLoader, TensorDataset, random_split
 
 file_path = '/Users/fhy/isep3th/project/dataprocess/2018.01/GOLD_XYZ_OSC.0001_1024.hdf5'
+# file_path = 'F:\ISEP_Learning_Document\Semester3\End-of-track Project\dataset\data_raw\GOLD_XYZ_OSC.0001_1024.hdf5'
 
 
 def data_analyze():
