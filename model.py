@@ -9,6 +9,7 @@ class firstCNN(nn.Module):
         super(firstCNN, self).__init__()
 
         # 1D convolutional layers
+        # the rise of channels helps the network learn a hierarchy of features, from basic to complex.
         self.conv1 = nn.Conv1d(in_channels=2, out_channels=16, kernel_size=3, stride=1, padding=1)
         self.conv2 = nn.Conv1d(in_channels=16, out_channels=32, kernel_size=3, stride=1, padding=1)
         self.conv3 = nn.Conv1d(in_channels=32, out_channels=64, kernel_size=3, stride=1, padding=1)
@@ -21,8 +22,13 @@ class firstCNN(nn.Module):
         self.fc2 = nn.Linear(128, num_classes)
 
         # Dropout for regularization
+        # Dropout is a regularization technique where randomly selected neurons are ignored during training. This helps prevent overfitting.
         self.dropout = nn.Dropout(0.5)
 
+    # Data passes through three convolutional layers, each followed by a ReLU activation and max pooling.
+    # The data is then flattened to be fed into the fully connected layers.
+    # After the first dense layer, dropout is applied for regularization.
+    # Finally, the output of the second dense layer provides the predictions for the 24 classes.
     def forward(self, x):
         # First convolutional layer
         x = self.pool(F.relu(self.conv1(x)))
