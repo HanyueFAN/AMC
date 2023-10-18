@@ -56,6 +56,11 @@ class firstCNN(nn.Module):
 model = firstCNN()
 
 # Redefine the loss function and the optimizer
+# cross-entropy loss function
 criterion = nn.CrossEntropyLoss()
+#loss = criterion(outputs, labels)
+
+# Adam (short for Adaptive Moment Estimation) optimization algorithm,
+# which is a popular variant of gradient descent that adapts learning rates for each parameter.
 optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
 
